@@ -1,0 +1,165 @@
+<extend name="Public/header" />
+
+
+<block name="content">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_tnyc012u2rlwstt9.css" media="all" />
+    <link rel="stylesheet" href="Public/Admin/css/main.css">
+
+    <style>
+
+        .layui-show{
+            margin-top: 20px;
+            margin-left: 8px;
+
+        }
+
+    </style>
+
+
+    <div class="layui-tab">
+        <ul class="layui-tab-title">
+            <li class="layui-this">首页轮播图管理</li>
+            <li>用户管理</li>
+            <li>权限分配</li>
+            <li>商品管理</li>
+            <li>订单管理</li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+
+                <div class="layui-carousel" id="test10">
+                    <div carousel-item="">
+                        <div><img width="100%" height="384" src="/Public/images/594234084165e.jpg"></div>
+                        <div><img width="100%" height="384"  src="/Public/images/594234084165e.jpg"></div>
+                        <div><img width="100%" height="384"  src="/Public/images/594234084165e.jpg"></div>
+                        <div><img width="100%" height="384"  src="/Public/images/594234084165e.jpg"></div>
+                        <div><img width="100%" height="384"  src="/Public/images/594234084165e.jpg"></div>
+                        <div><img width="100%" height="384"  src="/Public/images/594234084165e.jpg"></div>
+                        <div><img width="100%" height="384"  src="/Public/images/594234084165e.jpg"></div>
+                    </div>
+                </div>
+
+                <table class="layui-table" lay-data="{height:313, url:'{:U('index/imagesa')}'}" lay-filter="test3">
+                    <thead>
+                        <tr>
+
+                            <th lay-data="{field:'experience', width:80, sort: true, edit: 'text'}">排序</th>
+                            <th lay-data="{field:'id', width:80, sort: true}">ID</th>
+                            <th lay-data="{field:'username', width:180, sort: true, edit: 'text'}">标题</th>
+                            <th lay-data="{field:'email', width:150, edit: 'text'}">路径</th>
+                            <th lay-data="{field:'experience', width:260, sort: true, edit: 'text'}">是否显示 (1:显示,0不显示)</th>
+
+                        </tr>
+                    </thead>
+                </table>
+
+                <div class="layui-btn-group" style="margin-top: 16px">
+                    <button class="layui-btn">增加</button>
+                </div>
+
+            </div>
+
+
+            <div class="layui-tab-item">内容2</div>
+            <div class="layui-tab-item">内容3</div>
+            <div class="layui-tab-item">内容4</div>
+            <div class="layui-tab-item">内容5</div>
+        </div>
+
+    </div>
+
+    <!--<li class="layui-this">编辑</li>-->
+    <!--<li class=""><a href="/index.php?m=Index" target="_blank">查看页面</a></li>-->
+
+
+    <script src="Public/layui/layui.all.js" charset="utf-8"></script>
+    <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+
+    <script>
+        layui.use('table', function(){
+            var table = layui.table;
+
+            //监听单元格编辑
+            table.on('edit(test3)', function(obj){
+                var value = obj.value //得到修改后的值
+                    ,data = obj.data //得到所在行所有键值
+                    ,field = obj.field; //得到字段
+                layer.msg('[ID: '+ data.id +'] ' + field + ' 字段更改为：'+ value);
+            });
+        });
+    </script>
+
+    <script>
+
+        layui.use(['carousel', 'form'], function(){
+            var carousel = layui.carousel
+                ,form = layui.form;
+
+            //常规轮播
+            carousel.render({
+                elem: '#test1'
+                ,arrow: 'always'
+            });
+
+            //改变下时间间隔、动画类型、高度
+            carousel.render({
+                elem: '#test2'
+                ,interval: 1800
+                ,anim: 'fade'
+                ,height: '120px'
+            });
+
+            //设定各种参数
+            var ins3 = carousel.render({
+                elem: '#test3'
+            });
+            //图片轮播
+            carousel.render({
+                elem: '#test10'
+                ,width: '778px'
+                ,height: '440px'
+                ,interval: 5000
+            });
+
+            //事件
+            carousel.on('change(test4)', function(res){
+                console.log(res)
+            });
+
+            var $ = layui.$, active = {
+                set: function(othis){
+                    var THIS = 'layui-bg-normal'
+                        ,key = othis.data('key')
+                        ,options = {};
+
+                    othis.css('background-color', '#5FB878').siblings().removeAttr('style');
+                    options[key] = othis.data('value');
+                    ins3.reload(options);
+                }
+            };
+
+            //监听开关
+            form.on('switch(autoplay)', function(){
+                ins3.reload({
+                    autoplay: this.checked
+                });
+            });
+
+            $('.demoSet').on('keyup', function(){
+                var value = this.value
+                    ,options = {};
+                if(!/^\d+$/.test(value)) return;
+
+                options[this.name] = value;
+                ins3.reload(options);
+            });
+
+            //其它示例
+            $('.demoTest .layui-btn').on('click', function(){
+                var othis = $(this), type = othis.data('type');
+                active[type] ? active[type].call(this, othis) : '';
+            });
+        });
+    </script>
+
+</block>

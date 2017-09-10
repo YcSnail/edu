@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>layout 后台大布局 - Layui</title>
     <link rel="stylesheet" href="Public/layui/css/layui.css">
+    <!--<script src="Public/layui/layui.js" charset="utf-8"></script>-->
 </head>
 <body>
 <div class="layui-layout layui-layout-admin">
@@ -55,32 +56,12 @@
     </div>
 
     <div class="layui-body">
+
+
         <!-- 内容主体区域 -->
-        <div style="">
+        <div style="padding: 6px">
 
-            <div class="layui-tab" lay-filter="demo" lay-allowclose="true">
-                <ul class="layui-tab-title">
-                    <li class="layui-this" lay-id="">
-                        <i class="iconfont icon-computer"></i>
-                        <cite>后台首页</cite>
-                    </li>
-                    <li lay-id="22">用户管理</li>
-                    <li lay-id="33">权限分配</li>
-                    <li lay-id="44">商品管理</li>
-                    <li lay-id="55">订单管理</li>
-                </ul>
-
-                <div class="layui-tab-content">
-                    <div class="layui-tab-item layui-show">
-                        <block name="content">首页</block>
-                    </div>
-                    <div class="layui-tab-item">内容2</div>
-                    <div class="layui-tab-item">内容3</div>
-                    <div class="layui-tab-item">内容4</div>
-                    <div class="layui-tab-item">内容5</div>
-                </div>
-            </div>
-
+            <block name="content"></block>
 
         </div>
     </div>
