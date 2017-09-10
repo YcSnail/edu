@@ -1,56 +1,113 @@
+<extend name="Public/header" />
 
-<extend name="Public:header" />
 
 <block name="content">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_tnyc012u2rlwstt9.css" media="all" />
+    <link rel="stylesheet" href="Public/Admin/css/main.css">
 
-    <div class="layui-body layui-form" id="larry-body">
-        <div class="layui-tab marg0" id="larry-tab" lay-filter="bodyTab">
-            <!-- -- 选项卡---->
-            <ul class="layui-tab-title top_tab" id="top_tabs">
-                <li class="layui-this" lay-id=""><i class="larry-icon larry-houtaishouye"></i> <cite>后台首页</cite></li>
-            </ul>
-            <div class="larry-title-box" style="height: 41px;">
-                <div class="go-left key-press pressKey" id="titleLeft" title="滚动至最右侧"><i class="larry-icon larry-weibiaoti6-copy"></i> </div>
-                <div class="title-right" id="titleRbox">
-                    <div class="go-right key-press pressKey" id="titleRight" title="滚动至最左侧"><i class="larry-icon larry-right"></i></div>
-                    <div class="refresh key-press" id="refresh_iframe"><i class="larry-icon larry-shuaxin2"></i><cite>刷新</cite></div>
+    <style>
 
-                    <div class="often key-press">
-                        <ul class="layui-nav posr">
-                            <li class="layui-nav-item posb">
-                                <a class="top"><i class="larry-icon larry-caozuo"></i><cite>常用操作</cite><span class="layui-nav-more"></span></a>
-                                <dl class="layui-nav-child">
-                                    <dd>
-                                        <a href="javascript:;" class="closeCurrent"><i class="larry-icon larry-guanbidangqianye"></i>关闭当前选项卡</a>
-                                    </dd>
-                                    <dd>
-                                        <a href="javascript:;" class="closeOther"><i class="larry-icon larry-guanbiqita"></i>关闭其他选项卡</a>
-                                    </dd>
-                                    <dd>
-                                        <a href="javascript:;" class="closeAll"><i class="larry-icon larry-guanbiquanbufenzu"></i>关闭全部选项卡</a>
-                                    </dd>
-                                </dl>
-                            </li>
-                            <span class="layui-nav-bar"></span></ul>
-                    </div>
+        .layui-show{
+            margin-top: 20px;
+            margin-left: 8px;
+
+        }
+
+    </style>
+
+    <div class="panel_box row">
+        <div class="panel col">
+            <a href="javascript:;" data-url="page/message/message.html">
+                <div class="panel_icon">
+                    <i class="layui-icon" data-icon=""></i>
                 </div>
-            </div>
-            <div class="layui-tab-content clildFrame" style="height:793px;">
-                <div class="layui-tab-item layui-show layui-anim layui-anim-upbit">
+                <div class="panel_word newMessage">
+                    <span>5</span>
+                    <cite>新消息</cite>
+                </div>
+            </a>
+        </div>
+        <div class="panel col">
+            <a href="javascript:;" data-url="page/user/allUsers.html">
+                <div class="panel_icon" style="background-color:#FF5722;">
+                    <i class="iconfont icon-dongtaifensishu" data-icon="icon-dongtaifensishu"></i>
+                </div>
+                <div class="panel_word userAll">
+                    <span>3</span>
+                    <cite>新增人数</cite>
+                </div>
+            </a>
+        </div>
+        <div class="panel col">
+            <a href="javascript:;" data-url="page/user/allUsers.html">
+                <div class="panel_icon" style="background-color:#009688;">
+                    <i class="layui-icon" data-icon=""></i>
+                </div>
+                <div class="panel_word userAll">
+                    <span>3</span>
+                    <cite>用户总数</cite>
+                </div>
+            </a>
+        </div>
+        <div class="panel col">
+            <a href="javascript:;" data-url="page/img/images.html">
+                <div class="panel_icon" style="background-color:#5FB878;">
+                    <i class="layui-icon" data-icon=""></i>
+                </div>
+                <div class="panel_word imgAll">
+                    <span>31</span>
+                    <cite>图片总数</cite>
+                </div>
+            </a>
+        </div>
+        <div class="panel col">
+            <a href="javascript:;" data-url="page/news/newsList.html">
+                <div class="panel_icon" style="background-color:#F7B824;">
+                    <i class="iconfont icon-wenben" data-icon="icon-wenben"></i>
+                </div>
+                <div class="panel_word waitNews">
+                    <span>13</span>
+                    <cite>待审核文章</cite>
+                </div>
+            </a>
+        </div>
+        <div class="panel col max_panel">
+            <a href="javascript:;" data-url="page/news/newsList.html">
+                <div class="panel_icon" style="background-color:#2F4056;">
+                    <i class="iconfont icon-text" data-icon="icon-text"></i>
+                </div>
+                <div class="panel_word allNews">
+                    <span>30</span>
+                    <em>文章总数</em>
+                    <cite>文章列表</cite>
+                </div>
+            </a>
+        </div>
+    </div>
 
-                    <iframe src="/main/home.do" data-id="0" name="ifr_0" id="ifr_0"></iframe>
-
+    <div class="sysNotice col">
+        <div class="layui-collapse">
+            <div class="layui-colla-item">
+                <h2 class="layui-colla-title" style="background-color: #ffffff;">网站访问情况统计<i
+                        class="layui-icon layui-colla-icon"></i></h2>
+                <div class="layui-colla-content layui-show">
+                    <div id="container"
+                         style="height: 300px; margin: 0px auto; width: 100%; -webkit-tap-highlight-color: transparent; user-select: none; background: transparent; position: relative;"
+                         _echarts_instance_="ec_1505033954389">
+                        <div style="position: relative; overflow: hidden; width: 763px; height: 300px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;">
+                            <canvas width="763" height="300" data-zr-dom-id="zr_0"
+                                    style="position: absolute; left: 0px; top: 0px; width: 763px; height: 300px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas>
+                        </div>
+                        <div style="position: absolute; display: none; border-style: solid; white-space: nowrap; z-index: 9999999; transition: left 0.4s cubic-bezier(0.23, 1, 0.32, 1), top 0.4s cubic-bezier(0.23, 1, 0.32, 1); background-color: rgba(50, 50, 50, 0.498039); border-width: 0px; border-color: rgb(51, 51, 51); border-radius: 4px; color: rgb(255, 255, 255); font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14px; font-family: &quot;Microsoft YaHei&quot;; line-height: 21px; padding: 5px; left: 663.1px; top: 82px;">
+                            周日<br><span
+                                style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:#2ec7c9"></span>访问量
+                            : 0.2
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <div class="layui-footer">
-        <!-- 底部固定区域 -->
-        © layui.com - 底部固定区域
-    </div>
-
-
 
 
 </block>

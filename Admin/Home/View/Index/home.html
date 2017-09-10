@@ -1,11 +1,300 @@
 <!DOCTYPE html>
-<html lang="zh-cmn-Hans">
+<!-- saved from url=(0036)http://yangxiaobing.org/main/home.do -->
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <title>Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>后台管理系统</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="后台管理系统">
+    <meta name="description" content="致力于提供通用版本后台管理解决方案">
+
+    <link rel="shortcut icon" href="http://yangxiaobing.org/static/img/favicon.ico">
+    <link rel="stylesheet" href="Public/layui/css/layui.css">
+
+    <link rel="stylesheet" href="Public/Index/home/css/global.css">
+    <link rel="stylesheet" type="text/css" href="Public/Index/home/css/common.css" media="all">
+    <link rel="stylesheet" type="text/css" href="Public/Index/home/css/personal.css" media="all">
+    <link rel="stylesheet" href="Public/Index/home/css/main.css">
+
+    <link rel="stylesheet" type="text/css" href="Public/Index/home/css/font_9h680jcse4620529.css">
+
+    <script src="Public/layui/layui.js"></script>
+
+    <script src="Public/js/jquery-1.8.3.js"></script>
+    <script src="Public/js/jquery.leoweather.min.js"></script>
+
+    <script type="text/javascript" src="Public/Index/home/js/echarts.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="Public/Index/home/js/macarons.js" charset="utf-8"></script>
+
+    <link id="layuicss-layer" rel="stylesheet" href="Public/Index/home/css/layer.css" media="all">
 </head>
 <body>
+<div class="larry-grid layui-anim layui-anim-upbit larryTheme-A">
+    <div class="larry-personal">
+        <div class="layui-tab">
+            <blockquote class="layui-elem-quote col-md-12 head-con">
+                <div>管理员<span id="weather">，<span id="weather_xx">凌晨</span>好！，<span id="colock">现在时间是：<strong><span
+                        id="weather_YY">2017</span>年<span id="weather_MM">09</span>月<span
+                        id="weather_DD">10</span>日 星期<span id="weather_ww">日</span> <span
+                        id="weather_hh">02</span>:<span id="weather_mm">36</span>:<span
+                        id="weather_ss">10</span></strong>，</span> <b>无锡天气</b> 小雨 23℃ ~ 30℃ </span></div>
+            </blockquote>
+            <div class="larry-separate"></div>
+            <!-- 菜单列表 -->
+            <div class="layui-show" style="padding: 10px 15px;">
+                <div class="panel_box row">
+                    <div class="panel col">
+                        <a href="javascript:;" data-url="/announcement/announcement_unread_list.do">
+                            <div class="panel_icon">
+                                <i class="layui-icon larry-icon larry-gonggaoguanli"
+                                   data-icon="larry-gonggaoguanli"></i>
+                            </div>
+                            <div class="panel_word unreadAnnInfo">
+                                <span>0</span>
+                                <cite>未读公告</cite>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="panel col">
+                        <a href="javascript:;" data-url="page/message/message.html">
+                            <div class="panel_icon">
+                                <i class="layui-icon" data-icon=""></i>
+                            </div>
+                            <div class="panel_word newMessage">
+                                <span>0</span>
+                                <cite>待定</cite>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="panel col">
+                        <a href="javascript:;" data-url="page/user/allUsers.html">
+                            <div class="panel_icon" style="background-color:#F7B824;">
+                                <i class="layui-icon" data-icon=""></i>
+                            </div>
+                            <div class="panel_word waitNews">
+                                <span>0</span>
+                                <cite>待定</cite>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="panel col max_panel">
+                        <a href="javascript:;" data-url="page/img/images.html">
+                            <div class="panel_icon" style="background-color:#5FB878;">
+                                <i class="layui-icon" data-icon=""></i>
+                            </div>
+                            <div class="panel_word imgAll">
+                                <span>0</span>
+                                <cite>待定</cite>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="larry-separate"></div>
+            <div class="row">
+                <div class="sysNotice col">
+                    <div class="layui-collapse">
+                        <div class="layui-colla-item">
+                            <h2 class="layui-colla-title" style="background-color: #ffffff;">网站访问情况统计<i
+                                    class="layui-icon layui-colla-icon"></i></h2>
+                            <div class="layui-colla-content layui-show">
+                                <div id="container"
+                                     style="height: 300px; margin: 0px auto; width: 100%; -webkit-tap-highlight-color: transparent; user-select: none; background: transparent; position: relative;"
+                                     _echarts_instance_="ec_1504982080472">
+                                    <div style="position: relative; overflow: hidden; width: 907px; height: 300px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;">
+                                        <canvas width="907" height="300" data-zr-dom-id="zr_0"
+                                                style="position: absolute; left: 0px; top: 0px; width: 907px; height: 300px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas>
+                                    </div>
+                                    <div style="position: absolute; display: none; border-style: solid; white-space: nowrap; z-index: 9999999; transition: left 0.4s cubic-bezier(0.23, 1, 0.32, 1), top 0.4s cubic-bezier(0.23, 1, 0.32, 1); background-color: rgba(50, 50, 50, 0.498039); border-width: 0px; border-color: rgb(51, 51, 51); border-radius: 4px; color: rgb(255, 255, 255); font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14px; font-family: &quot;Microsoft YaHei&quot;; line-height: 21px; padding: 5px; left: 113.343px; top: 80px;">
+                                        周一<br><span
+                                            style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:#2ec7c9"></span>访问量
+                                        : 2
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="sysNotice col">
+                    <div class="layui-collapse">
+                        <div class="layui-colla-item">
+                            <h2 class="layui-colla-title" style="background-color: #ffffff;">网站访问情况统计<i
+                                    class="layui-icon layui-colla-icon"></i></h2>
+                            <div class="layui-colla-content layui-show">
+                                <div id="container2"
+                                     style="height: 300px; margin: 0px auto; width: 100%; -webkit-tap-highlight-color: transparent; user-select: none; background: transparent; position: relative;"
+                                     _echarts_instance_="ec_1504982080473">
+                                    <div style="position: relative; overflow: hidden; width: 907px; height: 300px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;">
+                                        <canvas width="907" height="300" data-zr-dom-id="zr_0"
+                                                style="position: absolute; left: 0px; top: 0px; width: 907px; height: 300px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas>
+                                    </div>
+                                    <div style="position: absolute; display: none; border-style: solid; white-space: nowrap; z-index: 9999999; transition: left 0.4s cubic-bezier(0.23, 1, 0.32, 1), top 0.4s cubic-bezier(0.23, 1, 0.32, 1); background-color: rgba(50, 50, 50, 0.498039); border-width: 0px; border-color: rgb(51, 51, 51); border-radius: 4px; color: rgb(255, 255, 255); font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14px; font-family: &quot;Microsoft YaHei&quot;; line-height: 21px; padding: 5px; left: 162.529px; top: 81px;">
+                                        周一<br><span
+                                            style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:#2ec7c9"></span>访问量
+                                        : 2
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var $;
+    layui.config({
+        base: "/static/js/"
+    }).use(['form', 'jquery', 'layer', 'common', 'element'], function () {
+        $ = layui.$;
+        var form = layui.form,
+            element = layui.element,
+            common = layui.common;
+        //天气插件
+        $('#weather').leoweather({format: '，{时段}好！，<span id="colock">现在时间是：<strong>{年}年{月}月{日}日 星期{周} {时}:{分}:{秒}</strong>，</span> <b>{城市}天气</b> {天气} {夜间气温}℃ ~ {白天气温}℃ '});
+
+        //首页卡片tab添加
+        $(".panel a").on("click", function () {
+            window.parent.addTab($(this));
+        });
+        //首页数据初始化
+        homeInit();
+
+        //图表
+        var psLineChar = echarts.init(document.getElementById('container'), 'macarons');
+        var option = {
+            title: {
+                text: '网站访问量',
+                subtext: '纯属虚构'
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data: ['访问量']
+            },
+            toolbox: {
+                show: true,
+                feature: {
+                    magicType: {type: ['line', 'bar']}
+                }
+            },
+            calculable: true,
+            xAxis: [
+                {
+                    type: 'category',
+                    data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+                }
+            ],
+            yAxis: [
+                {
+                    type: 'value'
+                }
+            ],
+            series: [
+                {
+                    name: '访问量',
+                    type: 'line',
+                    data: [2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 0.2]
+                }
+            ]
+        };
+
+
+        //查询
+        function loadDrugs() {
+            psLineChar.clear();
+            psLineChar.showLoading({text: '正在努力的读取数据中...'});
+            psLineChar.setOption(option, true);
+            psLineChar.hideLoading();
+
+        }
+
+
+        //载入图表
+        loadDrugs();
+
+
+        //图表
+        var psLineChar2 = echarts.init(document.getElementById('container2'), 'macarons');
+        var option = {
+            title: {
+                text: '网站访问量',
+                subtext: '纯属虚构'
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data: ['访问量']
+            },
+            toolbox: {
+                show: true,
+                feature: {
+                    magicType: {type: ['line', 'bar']}
+                }
+            },
+            calculable: true,
+            xAxis: [
+                {
+                    type: 'category',
+                    data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+                }
+            ],
+            yAxis: [
+                {
+                    type: 'value'
+                }
+            ],
+            series: [
+                {
+                    name: '访问量',
+                    type: 'bar',
+                    data: [2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 0.2]
+                }
+            ]
+        };
+
+
+        //查询
+        function loadDrugs2() {
+            psLineChar2.clear();
+            psLineChar2.showLoading({text: '正在努力的读取数据中...'});
+            psLineChar2.setOption(option, true);
+            psLineChar2.hideLoading();
+
+        }
+
+
+        //载入图表
+        loadDrugs2();
+
+        //浏览器大小改变时重置大小
+        window.onresize = function () {
+            psLineChar.resize();
+            psLineChar2.resize();
+
+        };
+
+
+    });
+
+    /**页面赋值初始化*/
+    function homeInit() {
+        /**加载未读公告数*/
+        $.post("/announcement/ajax_unread_anninfo_count.do", function (data) {
+            $(".unreadAnnInfo span").text(data);
+        });
+    }
+</script>
 
 </body>
 </html>
