@@ -677,7 +677,7 @@ a.qgzquans{text-align:center;display:block;line-height:32px;color:#C51013;}
 .oVSescore ul{overflow:hidden;width:auto; margin:0; float:none;}
 .oVSescore ul li{display:block;float:left;width:280px;text-align:center;height:auto;margin:10px 0;}
 .oVSescore ul li:nth-of-type(2){margin:10px 79px;}
-.oVSescore ul li p{position:relative;margin-top:-50px;font-size:24px;font-weight:700;color:#535353}
+.oVSescore ul li p{position:relative;margin-top: 0px;font-size:24px;font-weight:700;color:#535353}
 .oVSescore ul li a{margin:20px auto;display:block;width:280px;font-size:20px;border-radius:10px;background:#db5056;line-height:48px;color:#fff}
 .oVSescore ul li a img{display:inline-block;vertical-align:middle}
 .not{background:url(../images/likebg1.jpg) no-repeat;    background-size: 100% auto;height:386px}
@@ -755,7 +755,6 @@ a.qgzlink1 img{display:inline-block;vertical-align:middle;margin-right:4px}
 .verybig p.qp6{right:53px;top:605px;line-height:28px;padding-top:10px;height:67px;width:400px}
 a.qgzlinkqie{margin:0 auto}
 .qgzxin{font-size:18px;color:#db5056;text-align:center;margin-top:14px}
-.qgzlesson3 h3{width:;}
 
 @media screen and (max-width:1440px){.fixbottomBox{width:650px}
     .fixbottomBox .fixbox strong{font-size:16px;left:82px;top:53px}

@@ -30,7 +30,7 @@ body{ font-family: "微软雅黑", "宋体", Arial, Helvetica, sans-serif; font-
 .cityLogo a{ color:#0076c0;}
 .cityLogo a:hover{ text-decoration:underline;}
 .cityLogo font{ display:inline-block; margin:0 10px 0 15px;}
-.logoTel{ margin-top:13px;background:url(../images/m7.jpg) no-repeat;width:319px;height:75px; color:#b71c20; font-weight:bold; position:relative;}
+.logoTel{ margin-top:13px;background:url(../newImages/m7.png) no-repeat;width:319px;height:75px; color:#b71c20; font-weight:bold; position:relative;}
 .logoTel a{  position:absolute;height:23px;width:50px; display:block;top:0;}
 .logoTel a.ovos1{right:113px;}
 .logoTel a.ovos2{right:59px;}
@@ -105,7 +105,7 @@ body{ font-family: "微软雅黑", "宋体", Arial, Helvetica, sans-serif; font-
 .navMeau.hd .navMeaubar h2 strong{background:#0063a1 url(../images/m9.png) no-repeat 179px center;}
 
 
-.navMeaubar dl{ padding:9px 12px 1px; line-height:22px; color:#333;background:url(../images/m11.jpg) no-repeat right 155px;}
+.navMeaubar dl{ padding:9px 12px 1px; line-height:22px; color:#333;}
 .navMeaubar dt{background:url(../images/m12.jpg) no-repeat left center; font-size:17px; color:#0076c0; font-weight:bold; padding-left:15px; margin-bottom:5px;}
 .navMeaubar dl dt a{ color:#0076c0;}
 .navMeaubar dd{ margin-bottom:10px;}
@@ -331,8 +331,7 @@ margin-left: -180px;}
 .btm_nav2{line-height:30px;text-align:center;color:#FFF;}
 .btm_nav2 a{padding:0 5px;color:#fff;}
 .btm_nav2 a:hover{color:#d3d3d3}
-.copyright{color:#fff;background:#000;text-align:center;padding:10px 0 15px;font-family:"黑体","微软雅黑","宋体",Arial,Helvetica,sans-serif;font-size:14px; padding:24px 0 30px}
-
+.copyright{color:#fff;background:#000;text-align:center;font-family:"黑体","微软雅黑","宋体",Arial,Helvetica,sans-serif;font-size:14px; padding:24px 0 30px}
 
 /*  qiehuan  */
 		.slideBox{ width:963px; height:334px; margin:60px auto 0; overflow:hidden; position:relative;}
@@ -417,7 +416,7 @@ a.qgzquans{text-align:center;display:block;line-height:32px;color:#C51013;margin
 
 /*  oVSo  */
 .oVSOne{ margin:55px auto 32px;}
-.oVSOne p{ font-size:30px; color:#333; margin-bottom:50px; padding-left:55px;}
+/*.oVSOne p{ font-size:30px; color:#333; margin-bottom:50px; padding-left:55px;}*/
 .oVSOne p strong{ font-size:32px; color:#c74342; margin-top:25px; display:block;}
 .oVSOne a:hover{ text-decoration:none;}
 .oVSOne a{ display:block; background:#d6444a; padding:5px 20px;font-size:30px; color:#fff; border-radius:5px;}
@@ -965,8 +964,8 @@ margin-bottom: -100px;}
 .env_2Main ul li a span{ display:block;width:227px;height:171px; background:url(../images/env2.png) repeat; position:absolute;left:0;top:0; z-index:2; display:none;}
 .env_2Main ul li:hover a span{ display:block;}
 .env_2Main ul li a span b{ display:block;width:76px;height:76px; background:url(../images/env1.png) no-repeat; margin:48px auto 0;}
-.on3Mian_ms{ position:relative; background:#f7f7f7; padding:20px; line-height:40px; margin-top:35px;}
-.on3Mian_ms img{ position:absolute;right:25px;bottom:0;}
+.on3Mian_ms{ height: 200px; position:relative; background:#f7f7f7; padding:20px; line-height:40px; margin-top:35px;}
+.on3Mian_ms img{ position:absolute; right: 0px; bottom: 30px;}
 .on3Mian p{ overflow:hidden; position:relative;font-size:17px; color:#333;}
 .on3Mian p strong{ color:#0076c0;}
 .on3Mian p i{width:5px;height:5px; border-radius:5px; display:inline-block; background:#0076c0;vertical-align: middle; margin-right:3px;}

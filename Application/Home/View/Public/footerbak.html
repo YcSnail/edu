@@ -1,4 +1,22 @@
 
+<div class="nad"><a href="javascript:void(0)"  onclick="doyoo.util.openChat();return false;" ></a></div>
+<!-- News -->
+<div class="newSzx">
+    <div class="newSzxMain cen hd">
+        <h2 class="ntitle nc2">最新资讯</h2>
+        <div class="nzx fl">
+            <img src="__PUBLIC__/images/nzx.png" /></div>
+        <div class="newSzxMainText hd">
+            <ul>
+                <li><i></i><a href="news-view.aspx?id=4352">书味教育助力中欧戈友会征战戈壁凯旋归来，商界大咖共话教育</a> <span>2017-07-27</span></li> <li><i></i><a href="news-view.aspx?id=4349">书味教育中高考菁英学员颁奖典礼，邀您共同见证青春的足迹！</a> <span>2017-07-17</span></li> <li><i></i><a href="news-view.aspx?id=4348">新初高三校长推荐课程</a> <span>2017-06-29</span></li> <li><i></i><a href="news-view.aspx?id=4346">中国教育电视台三频道《加油吧，考生》——《中考总动员》节目即将开播，千万不能错过！</a> <span>2017-06-12</span></li> <li><i></i><a href="news-view.aspx?id=4344">​6月3日“中考总动员”讲座报名啦！</a> <span>2017-06-01</span></li>
+
+            </ul>
+            <a class="nmore fr" href="{:U('about/news')}">更多信息</a>
+        </div>
+    </div>
+</div>
+<!-- News /-->
+
 <!--  页脚  -->
 <div class="fr_link" id="fr_link">
     <div class="fr_link_con">
@@ -88,12 +106,69 @@
 </div>
 
 
+<div class="fixbottom">
+    <div class="fixbottomBox">
+        <span class="hover"><b>学霸经验分享</b></span>
+        <div class="fixbox">
+            <img src="__PUBLIC__/images/fixbox.png" />
+            <strong>400-883-8062</strong>
+        </div>
+        <!-- <img class="closes" src="__PUBLIC__/images/closes.png" /> -->
+    </div>
+</div>
 
-<scrip>
 
 
 
-</scrip>
+</div>
+
+
+<script type="text/javascript">
+    $(function () {
+
+        $(".closes").click(function () {
+            $(".copyright").css("paddingBottom", "20px");
+            $(".fixbottom").slideToggle("slow");
+            setTimeout(function () { $(".fixbottom").slideToggle("slow"); $(".copyright").css("paddingBottom", "140px") }, 25000);
+        })
+
+        $(".timebox ul li").mouseenter(function () {
+            $(this).addClass("hover").siblings().removeClass("hover")
+        })
+
+        $(".closeright").click(function () {
+            $(".rightBoxNEWS").animate({ right: "-220px" }, 500);
+        })
+        $(".fixbottomBox span").click(function () {
+            $(this).toggleClass("hover")
+            $(this).next().slideToggle("slow");
+            if ($(this).hasClass("hover")) {
+                $(".copyright").css("paddingBottom", "30px")
+            } else {
+                $(".copyright").css("paddingBottom", "140px")
+            }
+        })
+
+        //  内页导航效果
+        $(".navMeau .navMeaubar h2 strong").click(function () {
+            $(".navMeau").toggleClass("hd")
+        })
+
+        jQuery(document).ready(function ($) {
+            "use strict";
+            $('#Default').perfectScrollbar();
+        });
+
+        function openM() {
+            $(".centerBox").show();
+        }
+        setTimeout("openM()", 8000);//5000
+        $('.mmcloseBtn').click(function () {
+            $(".centerBox").hide();
+            setTimeout("openM()", 100000);//1000
+        });
+    })
+</script>
 
 </body>
 </html>

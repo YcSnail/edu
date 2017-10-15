@@ -18,7 +18,7 @@ class AboutController extends Controller {
     }
 
     /**
-     * 精锐文化
+     * 书味文化
      */
     public function culture(){
         $this->display();
