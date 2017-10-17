@@ -36,4 +36,13 @@ class IndexController extends Controller {
         $this->display();
     }
 
+
+    /**
+     * 空页面
+     */
+    public function emptyPage(){
+        $this->display('404');
+    }
+
+
 }
