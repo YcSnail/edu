@@ -31,5 +31,11 @@ class AboutController extends Controller {
         $this->display();
     }
 
+    /**
+     * 补习班介绍
+     */
+    public function cramSchool(){
+        $this->display();
+    }
 
 }
