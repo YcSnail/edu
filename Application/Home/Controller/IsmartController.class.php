@@ -7,7 +7,7 @@ class IsmartController extends Controller {
      * 教学理念 主页面
      */
     public function index(){
-        $this->display('Index/404');
+        $this->display('Institute/index');
         die();
         $this->display();
     }

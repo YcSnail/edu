@@ -8,9 +8,6 @@ class InstituteController extends Controller {
      */
     public function index(){
 
-        $this->display('Index/404');
-        die();
-
         $this->display();
     }
 
