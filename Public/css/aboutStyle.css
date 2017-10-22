@@ -30,7 +30,7 @@ body{ font-family: "微软雅黑", "宋体", Arial, Helvetica, sans-serif; font-
 .cityLogo a{ color:#0076c0;}
 .cityLogo a:hover{ text-decoration:underline;}
 .cityLogo font{ display:inline-block; margin:0 10px 0 15px;}
-.logoTel{ margin-top:13px;background:url(../images/m7.jpg) no-repeat;width:319px;height:75px; color:#b71c20; font-weight:bold; position:relative;}
+.logoTel{ margin-top:13px;background:url(../newImages/m7.png) no-repeat;width:319px;height:75px; color:#b71c20; font-weight:bold; position:relative;}
 .logoTel strong{ display:block; margin:30px 0 0 60px;font-size:29px; }
 .logoTel a{  position:absolute;height:23px;width:50px; display:block;top:0;}
 .logoTel a.ovos1{right:113px;}
@@ -716,7 +716,7 @@ img.xuebaa{display:block;position:absolute;right:10px;top:10px;width:140px;}
 .View_5_4{ display:block;width:853px; margin:0 auto;}
 .View_6{ background:#eef8fb; padding-bottom:50px; overflow:hidden;}
 .View_6 .tsCen{ padding:35px 0;}
-.View_6_1{ display:block;width:855px; margin:0 auto;}
+.View_6_1{ display:block;width: 626px; height: 362px; margin:0 auto;}
 .View_6_2{ display:block;width:858px; margin:58px auto;}
 .View_6_3{ display:block;width:858px; margin:0 auto;}
 .View_7{ background:#fff; padding-top:40px;}
