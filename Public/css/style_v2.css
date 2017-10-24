@@ -13,7 +13,7 @@
 .cityLogo a{color:#0076c0}
 .cityLogo a:hover{text-decoration:underline}
 .cityLogo font{display:inline-block;margin:0 10px 0 15px}
-.logoTel{margin-top:13px;background:url(../images/m7.jpg) no-repeat;width:319px;height:75px;color:#b71c20;font-weight:700;position:relative}
+.logoTel{margin-top:13px;background:url(../newImages/m7.png) no-repeat;width:319px;height:75px;color:#b71c20;font-weight:700;position:relative}
 .logoTel a{position:absolute;height:23px;width:50px;display:block;top:0}
 .logoTel a.ovos1{right:113px}
 .logoTel a.ovos2{right:59px}

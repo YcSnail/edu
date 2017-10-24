@@ -1,0 +1,236 @@
+<extend name="Public/header" />
+
+
+<block name="content">
+    <title>系统参数管理</title>
+
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_tnyc012u2rlwstt9.css" media="all" />
+    <link rel="stylesheet" href="Public/Admin/css/main.css">
+
+    <style>
+
+        .layui-show{
+            margin-top: 20px;
+            margin-left: 8px;
+
+        }
+
+        .layui-form-label {
+            width: 86px;
+        }
+
+        .layui-input-block {
+            margin-left: 124px;
+        }
+
+    </style>
+
+
+    <div class="layui-tab">
+        <ul class="layui-tab-title">
+            <li class="layui-this">网站信息</li>
+            <li>用户管理</li>
+            <li>权限分配</li>
+            <li>商品管理</li>
+            <li>订单管理</li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+
+                <form class="layui-form" onsubmit="return false">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">手机号码</label>
+                        <div class="layui-input-block">
+                            <input type="number" placeholder="请输入" autocomplete="off" class="layui-input phone">
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">手机号码2</label>
+                        <div class="layui-input-block">
+                            <input type="number" placeholder="请输入" autocomplete="off" class="layui-input phoneTwo">
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">网站备案号</label>
+                        <div class="layui-input-block">
+                            <input type="number" placeholder="请输入" autocomplete="off" class="layui-input phoneTwo">
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">公安部备案号</label>
+                        <div class="layui-input-block">
+                            <input type="number" placeholder="请输入" autocomplete="off" class="layui-input phoneTwo">
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">网站版权信息</label>
+                        <div class="layui-input-block">
+                            <input type="number" placeholder="请输入" autocomplete="off" class="layui-input phoneTwo">
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <button class="layui-btn btn-sumit">立即提交</button>
+                        </div>
+                    </div>
+
+                </form>
+
+                <script>
+
+                    // 点击提交
+                    $('.btn-sumit').click(function () {
+
+                        var phone = checkPhone( $('.phone').val() );
+                        var phoneTwo =  checkPhone( $('.phoneTwo').val() );
+
+                        if (!phone || !phoneTwo){
+                            return false;
+                        }
+                        var url = "{:U('Post/phone')}";
+
+                        $.post(
+                            url,
+                            {
+                                'phone':phone,
+                                'phoneTwo':phoneTwo
+                            },function (data) {
+
+                                if (data.code == 0){
+
+                                    layer.msg(data.message);
+
+                                    setTimeout(webRelod,3);
+                                    function webRelod() {
+                                        window.location.reload();
+                                    }
+
+                                }else{
+                                    layer.msg(data.message);
+                                }
+
+                            },'JSON'
+                        )
+
+
+
+                    });
+
+                    // 检查手机号码
+                    function checkPhone(val) {
+                        if (val == '' || val.length !=11){
+                            layer.msg('手机号码输入有误');
+                            return false;
+                        }
+                        return val;
+                    }
+
+                </script>
+
+            </div>
+
+
+            <div class="layui-tab-item">内容2</div>
+            <div class="layui-tab-item">内容3</div>
+            <div class="layui-tab-item">内容4</div>
+            <div class="layui-tab-item">内容5</div>
+        </div>
+
+    </div>
+
+    <!--<li class="layui-this">编辑</li>-->
+    <!--<li class=""><a href="/index.php?m=Index" target="_blank">查看页面</a></li>-->
+
+    <script>
+        layui.use('table', function(){
+            var table = layui.table;
+
+            //监听单元格编辑
+            table.on('edit(test3)', function(obj){
+                var value = obj.value //得到修改后的值
+                    ,data = obj.data //得到所在行所有键值
+                    ,field = obj.field; //得到字段
+                layer.msg('[ID: '+ data.id +'] ' + field + ' 字段更改为：'+ value);
+            });
+        });
+    </script>
+
+    <script>
+
+        layui.use(['carousel', 'form'], function(){
+            var carousel = layui.carousel
+                ,form = layui.form;
+
+            //常规轮播
+            carousel.render({
+                elem: '#test1'
+                ,arrow: 'always'
+            });
+
+            //改变下时间间隔、动画类型、高度
+            carousel.render({
+                elem: '#test2'
+                ,interval: 1800
+                ,anim: 'fade'
+                ,height: '120px'
+            });
+
+            //设定各种参数
+            var ins3 = carousel.render({
+                elem: '#test3'
+            });
+            //图片轮播
+            carousel.render({
+                elem: '#test10'
+                ,width: '778px'
+                ,height: '440px'
+                ,interval: 5000
+            });
+
+            //事件
+            carousel.on('change(test4)', function(res){
+                console.log(res)
+            });
+
+            var $ = layui.$, active = {
+                set: function(othis){
+                    var THIS = 'layui-bg-normal'
+                        ,key = othis.data('key')
+                        ,options = {};
+
+                    othis.css('background-color', '#5FB878').siblings().removeAttr('style');
+                    options[key] = othis.data('value');
+                    ins3.reload(options);
+                }
+            };
+
+            //监听开关
+            form.on('switch(autoplay)', function(){
+                ins3.reload({
+                    autoplay: this.checked
+                });
+            });
+
+            $('.demoSet').on('keyup', function(){
+                var value = this.value
+                    ,options = {};
+                if(!/^\d+$/.test(value)) return;
+
+                options[this.name] = value;
+                ins3.reload(options);
+            });
+
+            //其它示例
+            $('.demoTest .layui-btn').on('click', function(){
+                var othis = $(this), type = othis.data('type');
+                active[type] ? active[type].call(this, othis) : '';
+            });
+        });
+    </script>
+
+</block>
