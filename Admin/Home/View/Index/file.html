@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>测试编辑器</title>
+
+    <script src="__PUBLIC__/ueditor/third-party/jquery-1.10.2.js"></script>
+
+    <script src="__PUBLIC__/ueditor/ueditor.config.js"></script>
+    <script src="__PUBLIC__/ueditor/ueditor.all.js"></script>
+    <script src="__PUBLIC__/ueditor/lang/zh-cn/zh-cn.js"></script>
+    <link rel="stylesheet" href="__PUBLIC__/ueditor/themes/default/css/ueditor.css">
+</head>
+<body>
+
+
+    <!-- 加载编辑器的容器 -->
+    <script id="container" name="content" type="text/plain"></script>
+
+    <button class="btn-submit">提交</button>
+
+
+
+
+
+<!-- 实例化编辑器 -->
+<script type="text/javascript">
+
+    $().ready(function () {
+
+        var ue = UE.getEditor('container', {
+            autoHeightEnabled: true,
+            autoFloatEnabled: true
+        });
+
+        $('.btn-submit').click(function () {
+            var text = ue.getContent();
+            console.log(text);
+        });
+
+    });
+
+
+
+
+</script>
+
+</body>
+</html>
