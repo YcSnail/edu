@@ -30,6 +30,12 @@ function gtZero(num) {
     return num;
 }
 
+
+layui.use('layer', function(){
+    layer = layui.layer;
+});
+
+
 /**
  * 显示遮罩层
  * @constructor
@@ -138,10 +144,11 @@ function getClassValArr(array,checkArr) {
             checkArrRes = jQuery.inArray(tmpArr[0],checkArr);
 
             if (checkArrRes < 0){
-                msg = $('.'+ tmpArr[0]).prev().text();
+                msg = $('.'+ tmpArr[0]).parent().prev().text();
                 if (msg ==''){
                     msg = tmpArr[0];
                 }
+
                 layer.msg(msg+' 不能为空');
                 break;
             }

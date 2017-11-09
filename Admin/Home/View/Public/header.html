@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="Public/layui/css/layui.css">
     <script src="Public/layui/layui.js"></script>
     <script src="Public/js/jquery-1.8.3.js"></script>
+    <script src="Public/js/function.js"></script>
+
 </head>
 
 
@@ -15,6 +17,9 @@
         width: 40%;
     }
 
+    .div-none{
+        display: none;
+    }
 
 </style>
 
@@ -42,26 +47,24 @@
             <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
             <ul class="layui-nav layui-nav-tree"  lay-filter="test">
                 <li class="layui-nav-item layui-nav-itemed">
-                    <a class="" href="{:U('index/index')}">系统管理</a>
+                    <a class="" href="javascript:;">系统管理</a>
                     <dl class="layui-nav-child">
-
                         <dd><a href="{:U('index/webIndex')}">首页管理</a></dd>
                         <dd><a href="{:U('index/job')}">招聘信息</a></dd>
                         <dd><a href="{:U('index/system')}">系统参数</a></dd>
-
                     </dl>
                 </li>
                 <li class="layui-nav-item">
                     <a href="javascript:;">SEO优化</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="{:U('index/system')}">默认信息</a></dd>
-                        <dd><a href="{:U('index/system')}">首页</a></dd>
-                        <dd><a href="{:U('index/system')}">走进书味</a></dd>
-                        <dd><a href="{:U('index/system')}">1对1</a></dd>
-                        <dd><a href="{:U('index/system')}">1对3</a></dd>
-                        <dd><a href="{:U('index/system')}">师资力量</a></dd>
-                        <dd><a href="{:U('index/system')}">教学理念</a></dd>
-                        <dd><a href="{:U('index/system')}">书味招聘</a></dd>
+                        <dd><a href="{:U('Seo/index',array('key'=>'defaultSet'))}">默认信息</a></dd>
+                        <dd><a href="{:U('Seo/index',array('key'=>'index'))}">首页</a></dd>
+                        <dd><a href="{:U('Seo/index',array('key'=>'about'))}">走进书味</a></dd>
+                        <dd><a href="{:U('Seo/index',array('key'=>'oneOnOne'))}">1对1</a></dd>
+                        <dd><a href="{:U('Seo/index',array('key'=>'oneOnThree'))}">1对3</a></dd>
+                        <dd><a href="{:U('Seo/index',array('key'=>'institute'))}">师资力量</a></dd>
+                        <dd><a href="{:U('Seo/index',array('key'=>'ismart'))}">教学理念</a></dd>
+                        <dd><a href="{:U('Seo/index',array('key'=>'job'))}">书味招聘</a></dd>
                     </dl>
                 </li>
             </ul>

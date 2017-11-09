@@ -1,0 +1,119 @@
+<extend name="Public/header" />
+
+<block name="content">
+    <title>后台系统管理首页</title>
+
+    <style>
+
+        .layui-input, .layui-textarea {
+            width: 100%;
+        }
+
+    </style>
+
+    <div class="layui-tab">
+
+        <ul class="layui-tab-title">
+            <li class="layui-this">{$name}SEO信息</li>
+        </ul>
+
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <form class="layui-form" onsubmit="return false">
+
+                    <div class="layui-form-item div-none">
+                        <label class="layui-form-label">标识</label>
+                        <div class="layui-input-block">
+                            <input type="text" placeholder="请输入网页标题"  value="{$key}" class="layui-input key">
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">title</label>
+                        <div class="layui-input-block">
+                            <input type="text" placeholder="请输入网页标题"  value="{$title}" class="layui-input phone">
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">keywords</label>
+                        <div class="layui-input-block">
+                            <input type="text" placeholder="请输入关键字,使用逗号隔开 ' , '"  value="{$keywords}" class="layui-input phoneTwo">
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">description</label>
+                        <div class="layui-input-block">
+                            <input type="text" placeholder="请输入网页描述,使用逗号隔开 ' , '"  value="{$description}" class="layui-input qq">
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <button class="layui-btn btn-sumit">保存</button>
+                        </div>
+                    </div>
+
+                </form>
+
+                <script>
+
+                    // 点击提交
+                    $('.btn-sumit').click(function () {
+
+                        var phone = checkPhone( $('.phone').val() );
+                        var phoneTwo =  checkPhone( $('.phoneTwo').val() );
+
+                        if (!phone || !phoneTwo){
+                            return false;
+                        }
+                        var url = "{:U('Post/Seo')}";
+
+                        $.post(
+                            url,
+                            {
+                                'phone':phone,
+                                'phoneTwo':phoneTwo
+                            },function (data) {
+
+                                if (data.code == 0){
+
+                                    layer.msg(data.message);
+
+                                    setTimeout(webRelod,3);
+                                    function webRelod() {
+                                        window.location.reload();
+                                    }
+
+                                }else{
+                                    layer.msg(data.message);
+                                }
+
+                            },'JSON'
+                        )
+                    });
+
+                    // 检查手机号码
+                    function checkPhone(val) {
+                        if (val == '' || val.length !=11){
+                            layer.msg('手机号码输入有误');
+                            return false;
+                        }
+                        return val;
+                    }
+
+                </script>
+
+            </div>
+
+            <div class="layui-tab-item">内容2</div>
+            <div class="layui-tab-item">内容3</div>
+            <div class="layui-tab-item">内容4</div>
+            <div class="layui-tab-item">内容5</div>
+        </div>
+
+    </div>
+
+
+</block>

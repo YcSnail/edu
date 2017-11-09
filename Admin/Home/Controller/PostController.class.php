@@ -33,6 +33,38 @@ class PostController extends Controller {
         }
 
         ajaxRes(0,'OK');
+    }
+
+    public function Seo(){
+
+        $post = I('post.');
+
+        if (empty($post['dataStr'])){
+            ajaxRes(-1,'数据不能为空');
+        }
+
+        $dataStr = $post['dataStr'];
+
+        $Setdata = explodeData($dataStr);
+
+        if (empty($Setdata['key'])  || empty($Setdata['name']) || empty($Setdata['title']) || empty($Setdata['keywords']) || empty($Setdata['description'])  ){
+            ajaxRes(-1,'数据不完整');
+        }
+
+        // 判断是 修改还是 新增
+        if (isset( $post['id'])){
+
+            // 修改数据
+            if (intval($post['id'])){
+
+
+            }
+
+        }
+
+        // 否则 新增数据
+
+
 
     }
 
