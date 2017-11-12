@@ -33,6 +33,28 @@
             width: 100%;
         }
 
+        .item-left{
+            margin-left: 20px;
+        }
+
+        .item-title{
+            text-align: center;
+            font-size: 28px;
+        }
+
+        .input-title-div{
+            margin-top: 20px;
+        }
+
+        .artextBox{
+            margin-top: 20px;
+        }
+
+        .btn-submit{
+            margin: 20px 8px 8px 8px;
+        }
+
+
     </style>
 
     <div class="layui-tab">
@@ -46,22 +68,35 @@
 
         <div class="layui-tab-content">
 
-            <div class="layui-tab-item layui-show">
-
-                <label class="layui-form-label">文章标题</label>
-                <div class="layui-input-inline">
-                    <input type="text" name="username" lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input">
-                </div>
+            <div class="layui-tab-item layui-show item-left">
 
                 <div class="show-data">
-
+                    <p class="item-title">
+                        <span>{$title}</span>
+                    </p>
+                    <div class="item-content">
+                        <?php echo $content ?>
+                    </div>
 
                 </div>
 
             </div>
 
             <div class="layui-tab-item">
-                <textarea name="后台取值的key" id="myEditor">这里写你的初始化内容</textarea>
+                <div class="layui-form-item input-title-div">
+                    <label class="layui-form-label">文章标题</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input id div-none" value="{$id}">
+                        <input type="text" class="layui-input style div-none" value="{$style}">
+                        <input type="text" style="width: 20%" placeholder="请输入标题" class="layui-input title" value="{$title}">
+                    </div>
+                </div>
+                <textarea id="myEditor" class="content">{$content}</textarea>
+
+                <div class="btn-submit">
+                    <button class="layui-btn">保存</button>
+                </div>
+
             </div>
 
         </div>
@@ -71,6 +106,54 @@
     <script type="text/javascript">
         var editor = new UE.ui.Editor();
         editor.render("myEditor");
+
+        $().ready(function () {
+
+            // 点击提交事件
+            $('.btn-submit').click(function () {
+
+                var getArr = ['id','style','title'];
+
+                var getList = getClassValArr(getArr,['id','style']);
+
+                if (!getList){
+                    return false;
+                }
+
+                var text = editor.getContent();
+
+                if (text ==''){
+                    layer.msg('内容不能为空');
+                    return false;
+                }
+
+                var saveStr = getList.join(";");
+
+                var url = "{:U('Post/Article')}";
+
+                $.post(
+                    url,
+                    {
+                        'dataStr':saveStr,
+                        'content':text
+                    },function (data) {
+
+                        if (data.code == 0){
+                            layer.msg(data.message+'2秒后,刷新页面');
+                            webReload();
+                        }else{
+                            layer.msg(data.message);
+                        }
+
+                    },'JSON'
+                )
+
+            })
+
+
+
+
+        })
 
     </script>
 

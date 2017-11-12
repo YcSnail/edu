@@ -323,3 +323,27 @@ function setGetDataArr(data,isArr) {
 
     return true;
 }
+
+
+/**
+ * 根据clasname 名字 修改值
+ * @param classNameArr
+ * @param valueArr
+ */
+function replaseData(classNameArr,valueArr) {
+
+    for (i=0;i<classNameArr.length;i++){
+        $('.'+ classNameArr[i]).val(valueArr[i]);
+    }
+
+}
+
+/**
+ * 3秒后刷新页面
+ */
+function webReload() {
+    setTimeout(function(){  //使用  setTimeout（）方法设定定时2000毫秒
+        window.location.reload();//页面刷新
+    },2000);
+
+}

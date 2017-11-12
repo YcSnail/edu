@@ -47,25 +47,72 @@ class PostController extends Controller {
 
         $Setdata = explodeData($dataStr);
 
-        if (empty($Setdata['key'])  || empty($Setdata['name']) || empty($Setdata['title']) || empty($Setdata['keywords']) || empty($Setdata['description'])  ){
+        if (empty($Setdata['key'])  || empty($Setdata['title']) || empty($Setdata['keywords']) || empty($Setdata['description'])  ){
             ajaxRes(-1,'数据不完整');
         }
 
+        $seo = D('Seo');
+
         // 判断是 修改还是 新增
-        if (isset( $post['id'])){
+        if (!empty( $post['id'])){
 
             // 修改数据
-            if (intval($post['id'])){
+            $dataRes = $seo->seoChange($Setdata);
 
+            if (empty($dataRes)){
+                ajaxRes(-1,'更新失败请重试');
+            }
 
+        }else{
+
+            // 否则 新增数据
+            $dataRes = $seo->seoAdd($Setdata);
+            if (empty($dataRes)){
+                ajaxRes(-1,'更新失败请重试');
             }
 
         }
 
-        // 否则 新增数据
+        ajaxRes(0,'修改成功');
+    }
 
+    /**
+     * 文章控制器
+     */
+    public function Article(){
 
+        $post = I('post.');
 
+        if (empty($post['dataStr'])){
+            ajaxRes(-1,'数据不能为空');
+        }
+
+        $dataStr = $post['dataStr'];
+
+        $Setdata = explodeData($dataStr);
+        $Setdata['content'] = $post['content'];
+
+        $obj = D('Article');
+        if (empty($Setdata['id'])){
+            // 文章添加
+
+            $objRes = $obj->ObjAdd($Setdata);
+
+            if (empty($objRes)){
+                ajaxRes(-1,'更新失败请重试');
+            }
+
+        }else{
+
+            // 文章修改
+            $objRes = $obj->ObjChange($Setdata);
+            if (empty($objRes)){
+                ajaxRes(-1,'更新失败请重试');
+            }
+
+        }
+
+        ajaxRes(0,'保存成功');
     }
 
 
