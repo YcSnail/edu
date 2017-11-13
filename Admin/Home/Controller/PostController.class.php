@@ -10,6 +10,7 @@ class PostController extends Controller {
         // 检查用户是否登录
         // 检查是否可以修改
 
+
     }
 
 
@@ -99,7 +100,7 @@ class PostController extends Controller {
             $objRes = $obj->ObjAdd($Setdata);
 
             if (empty($objRes)){
-                ajaxRes(-1,'更新失败请重试');
+                ajaxRes(-1,'添加失败请重试');
             }
 
         }else{
@@ -113,6 +114,123 @@ class PostController extends Controller {
         }
 
         ajaxRes(0,'保存成功');
+    }
+
+    /**
+     * 修改密码
+     */
+    public function changePassword(){
+
+        $post = I('post.');
+
+        if (empty($post['dataStr'])){
+            ajaxRes(-1,'数据不能为空');
+        }
+
+        $dataStr = $post['dataStr'];
+
+        $Setdata = explodeData($dataStr);
+
+        //安全验证
+
+        $obj = D('Member');
+        if (!empty($Setdata['password'])){
+
+            // 修改
+            $objRes = $obj->ObjChange($Setdata);
+            if (!empty($objRes)){
+                ajaxRes(0,'修改成功');
+            }
+
+        }
+
+        ajaxRes(-1,'更新失败请重试');
+    }
+
+
+    /**
+     * 修改系统参数
+     */
+    public function system(){
+
+        $post = I('post.');
+
+        if (empty($post['dataStr'])){
+            ajaxRes(-1,'数据不能为空');
+        }
+
+        $dataStr = $post['dataStr'];
+
+        $Setdata = explodeData($dataStr);
+
+        //安全验证
+
+        $obj = D('system');
+        if (!empty($Setdata['id'])){
+
+            // 修改
+            $objRes = $obj->ObjChange($Setdata);
+            if (!empty($objRes)){
+                ajaxRes(0,'修改成功');
+            }
+
+        }
+
+        ajaxRes(-1,'更新失败请重试');
+
+    }
+
+    /**
+     * 用户登录
+     */
+    public function login(){
+
+        $post = I('post.');
+
+        if (empty($post['dataStr'])){
+            ajaxRes(-1,'数据不能为空');
+        }
+
+        $dataStr = $post['dataStr'];
+
+        $Setdata = explodeData($dataStr);
+
+        //安全验证
+
+        $obj = D('Member');
+        if (!empty($Setdata['name'])){
+
+            // 修改
+            $objRes = $obj->login($Setdata);
+
+            if (!empty($objRes)){
+
+                $salt = $objRes['salt'];
+
+                $checkPassword = md5($Setdata['password'].$salt);
+
+                if ($objRes['password'] == $checkPassword){
+
+                    $time = time();
+
+                    $cookiePdw = md5($checkPassword.$time);
+                    // 登录成功 设置 COOKIE
+                    $data['name'] = $Setdata['name'];
+                    $data['time'] = $time;
+                    $data['password'] = $cookiePdw;
+                    $data['code'] ='member';
+
+                    setCookieData($data);
+                    ajaxRes(0,'登录成功');
+                }
+
+                ajaxRes(-1,'登录失败,密码不正确');
+            }
+            ajaxRes(-1,'登录失败,用户不存在');
+
+        }
+
+        ajaxRes(-1,'登录失败');
     }
 
 

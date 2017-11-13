@@ -339,11 +339,20 @@ function replaseData(classNameArr,valueArr) {
 }
 
 /**
- * 3秒后刷新页面
+ * 刷新页面
+ * @param time
  */
-function webReload() {
+function webReload(msg,time) {
+
+    if (!time){
+        time = 2;
+    }
+
+    var showMsg = msg ? msg : '保存成功';
+
+    layer.msg(showMsg +time+' S 后刷新页面');
     setTimeout(function(){  //使用  setTimeout（）方法设定定时2000毫秒
         window.location.reload();//页面刷新
-    },2000);
+    },time*1000);
 
 }

@@ -38,7 +38,19 @@ class IndexController extends Controller {
     }
 
     public function system(){
+
+
+        // 查询数据库 ID 获取对应的数据
+        $id = '1';
+
+        $obj = D('system');
+        // 获取 key 对应的数据
+        $objData = $obj->getData($id);
+
+        // 传值
+        $this->assign($objData);
         $this->display();
+
     }
 
 }

@@ -61,28 +61,28 @@
 
         <ul class="layui-tab-title">
             <li class="layui-this">招聘信息</li>
-            <li>编辑</li>
+            <!--<li>编辑</li>-->
 
         </ul>
 
 
         <div class="layui-tab-content">
 
+            <!--<div class="layui-tab-item layui-show item-left">-->
+
+                <!--<div class="show-data">-->
+                    <!--<p class="item-title">-->
+                        <!--<span>{$title}</span>-->
+                    <!--</p>-->
+                    <!--<div class="item-content">-->
+                        <!--<?php echo $content ?>-->
+                    <!--</div>-->
+
+                <!--</div>-->
+
+            <!--</div>-->
+
             <div class="layui-tab-item layui-show item-left">
-
-                <div class="show-data">
-                    <p class="item-title">
-                        <span>{$title}</span>
-                    </p>
-                    <div class="item-content">
-                        <?php echo $content ?>
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="layui-tab-item">
                 <div class="layui-form-item input-title-div">
                     <label class="layui-form-label">文章标题</label>
                     <div class="layui-input-block">
@@ -139,7 +139,6 @@
                     },function (data) {
 
                         if (data.code == 0){
-                            layer.msg(data.message+'2秒后,刷新页面');
                             webReload();
                         }else{
                             layer.msg(data.message);

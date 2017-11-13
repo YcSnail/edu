@@ -33,45 +33,52 @@
         <div class="layui-tab-content">
             <div class="layui-tab-item layui-show">
                 <form class="layui-form" onsubmit="return false">
+                    <div class="layui-form-item div-none">
+                        <label class="layui-form-label">id</label>
+                        <div class="layui-input-block">
+                            <input type="number" placeholder="请输入" autocomplete="off" class="layui-input id" value="1">
+                        </div>
+                    </div>
+
                     <div class="layui-form-item">
                         <label class="layui-form-label">手机号码</label>
                         <div class="layui-input-block">
-                            <input type="number" placeholder="请输入" autocomplete="off" class="layui-input phone">
+                            <input type="number" placeholder="请输入" autocomplete="off" class="layui-input phone" value="{$phone}">
                         </div>
                     </div>
 
                     <div class="layui-form-item">
                         <label class="layui-form-label">手机号码2</label>
                         <div class="layui-input-block">
-                            <input type="number" placeholder="请输入" autocomplete="off" class="layui-input phoneTwo">
+                            <input type="number" placeholder="请输入" autocomplete="off" class="layui-input phoneTwo" value="{$phonetwo}">
                         </div>
                     </div>
 
                     <div class="layui-form-item">
                         <label class="layui-form-label">客服QQ号码</label>
                         <div class="layui-input-block">
-                            <input type="number" placeholder="请输入" autocomplete="off" class="layui-input qq">
+                            <input type="number" placeholder="请输入" autocomplete="off" class="layui-input qq" value="{$qq}">
                         </div>
                     </div>
 
                     <div class="layui-form-item">
                         <label class="layui-form-label">网站备案号</label>
                         <div class="layui-input-block">
-                            <input type="number" placeholder="请输入" autocomplete="off" class="layui-input phoneTwo">
+                            <input type="text" placeholder="请输入" autocomplete="off" class="layui-input icp" value="{$icp}">
                         </div>
                     </div>
 
                     <div class="layui-form-item">
                         <label class="layui-form-label">公安部备案号</label>
                         <div class="layui-input-block">
-                            <input type="number" placeholder="请输入" autocomplete="off" class="layui-input phoneTwo">
+                            <input type="text" placeholder="请输入" autocomplete="off" class="layui-input policeIcp" value="{$policeicp}">
                         </div>
                     </div>
 
                     <div class="layui-form-item">
                         <label class="layui-form-label">网站版权信息</label>
                         <div class="layui-input-block">
-                            <input type="number" placeholder="请输入" autocomplete="off" class="layui-input phoneTwo">
+                            <input type="text" placeholder="请输入" autocomplete="off" class="layui-input copyright" value="{$copyright}">
                         </div>
                     </div>
 
@@ -88,30 +95,24 @@
                     // 点击提交
                     $('.btn-sumit').click(function () {
 
-                        var phone = checkPhone( $('.phone').val() );
-                        var phoneTwo =  checkPhone( $('.phoneTwo').val() );
+                        var getArr = ['id','phone','qq','phoneTwo','icp','policeIcp','copyright'];
+                        var getList = getClassValArr(getArr);
 
-                        if (!phone || !phoneTwo){
+                        if (!getList){
                             return false;
                         }
-                        var url = "{:U('Post/phone')}";
 
+                        var saveStr = getList.join(";");
+
+                        var url = "{:U('Post/system')}";
                         $.post(
                             url,
                             {
-                                'phone':phone,
-                                'phoneTwo':phoneTwo
+                                'dataStr':saveStr
                             },function (data) {
 
                                 if (data.code == 0){
-
-                                    layer.msg(data.message);
-
-                                    setTimeout(webRelod,3);
-                                    function webRelod() {
-                                        window.location.reload();
-                                    }
-
+                                    webReload();
                                 }else{
                                     layer.msg(data.message);
                                 }
@@ -120,122 +121,13 @@
                         )
                     });
 
-                    // 检查手机号码
-                    function checkPhone(val) {
-                        if (val == '' || val.length !=11){
-                            layer.msg('手机号码输入有误');
-                            return false;
-                        }
-                        return val;
-                    }
 
                 </script>
 
             </div>
 
-            <div class="layui-tab-item">内容2</div>
-            <div class="layui-tab-item">内容3</div>
-            <div class="layui-tab-item">内容4</div>
-            <div class="layui-tab-item">内容5</div>
         </div>
 
     </div>
-
-    <script>
-
-
-        $().ready(function () {
-
-
-        });
-
-
-    </script>
-
-    <!--
-        <script>
-        layui.use('table', function(){
-            var table = layui.table;
-
-            //监听单元格编辑
-            table.on('edit(test3)', function(obj){
-                var value = obj.value //得到修改后的值
-                    ,data = obj.data //得到所在行所有键值
-                    ,field = obj.field; //得到字段
-                layer.msg('[ID: '+ data.id +'] ' + field + ' 字段更改为：'+ value);
-            });
-        });
-
-        layui.use(['carousel', 'form'], function(){
-            var carousel = layui.carousel
-                ,form = layui.form;
-
-            //常规轮播
-            carousel.render({
-                elem: '#test1'
-                ,arrow: 'always'
-            });
-
-            //改变下时间间隔、动画类型、高度
-            carousel.render({
-                elem: '#test2'
-                ,interval: 1800
-                ,anim: 'fade'
-                ,height: '120px'
-            });
-
-            //设定各种参数
-            var ins3 = carousel.render({
-                elem: '#test3'
-            });
-            //图片轮播
-            carousel.render({
-                elem: '#test10'
-                ,width: '778px'
-                ,height: '440px'
-                ,interval: 5000
-            });
-
-            //事件
-            carousel.on('change(test4)', function(res){
-                console.log(res)
-            });
-
-            var $ = layui.$, active = {
-                set: function(othis){
-                    var THIS = 'layui-bg-normal'
-                        ,key = othis.data('key')
-                        ,options = {};
-
-                    othis.css('background-color', '#5FB878').siblings().removeAttr('style');
-                    options[key] = othis.data('value');
-                    ins3.reload(options);
-                }
-            };
-
-            //监听开关
-            form.on('switch(autoplay)', function(){
-                ins3.reload({
-                    autoplay: this.checked
-                });
-            });
-
-            $('.demoSet').on('keyup', function(){
-                var value = this.value
-                    ,options = {};
-                if(!/^\d+$/.test(value)) return;
-
-                options[this.name] = value;
-                ins3.reload(options);
-            });
-
-            //其它示例
-            $('.demoTest .layui-btn').on('click', function(){
-                var othis = $(this), type = othis.data('type');
-                active[type] ? active[type].call(this, othis) : '';
-            });
-        });
-    </script>
-    -->
 
 </block>
