@@ -7,8 +7,23 @@ class PostController extends Controller {
 
         parent::__construct();
 
-        // 检查用户是否登录
-        // 检查是否可以修改
+
+        // login
+        // 过滤LOGIN 方法
+        $chckFunction = strpos($_SERVER['QUERY_STRING'],'a=login');
+
+        if ( !$chckFunction){
+
+            // 检查用户是否登录
+            // 检查是否可以修改
+            $memberObj = A('Member');
+            $checkLogin = $memberObj->checkLogin();
+
+            if (! $checkLogin){
+                ajaxRes(-1,'请先登录');
+            }
+
+        }
 
 
     }
@@ -139,12 +154,20 @@ class PostController extends Controller {
             // 修改
             $objRes = $obj->ObjChange($Setdata);
             if (!empty($objRes)){
+
+                $userData = $obj->getData($Setdata['name']);
+
+                // 设置cookie
+                // 帐号 密码 selt
+                $setCookieObj = A('member');
+                $setCookieObj->setPwdCookie($userData);
+
                 ajaxRes(0,'修改成功');
             }
 
         }
 
-        ajaxRes(-1,'更新失败请重试');
+        ajaxRes(-1,'修改失败请重试');
     }
 
 
@@ -197,10 +220,10 @@ class PostController extends Controller {
 
         //安全验证
 
-        $obj = D('Member');
-        if (!empty($Setdata['name'])){
+        if (!empty($Setdata['name']) || !empty($Setdata['password'])){
 
-            // 修改
+            $obj = D('Member');
+            // 登录
             $objRes = $obj->login($Setdata);
 
             if (!empty($objRes)){
@@ -211,16 +234,9 @@ class PostController extends Controller {
 
                 if ($objRes['password'] == $checkPassword){
 
-                    $time = time();
-
-                    $cookiePdw = md5($checkPassword.$time);
-                    // 登录成功 设置 COOKIE
-                    $data['name'] = $Setdata['name'];
-                    $data['time'] = $time;
-                    $data['password'] = $cookiePdw;
-                    $data['code'] ='member';
-
-                    setCookieData($data);
+                    // 帐号 密码 selt
+                    $setCookieObj = A('member');
+                    $setCookieObj->setPwdCookie($objRes);
                     ajaxRes(0,'登录成功');
                 }
 

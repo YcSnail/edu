@@ -36,13 +36,10 @@
             <li class="layui-nav-item">
                 <a href="javascript:;">
                     <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
-                    贤心
+                    <?php echo $_COOKIE['userName'] ;?>
                 </a>
-                <dl class="layui-nav-child">
-                    <dd><a href="">修改密码</a></dd>
-                </dl>
             </li>
-            <li class="layui-nav-item"><a href="">退了</a></li>
+            <li class="layui-nav-item"><a href="{:U('Member/unsetLogin')}">退了</a></li>
         </ul>
     </div>
 
@@ -142,8 +139,6 @@
         // 菜单切换
         $('.layui-nav').find('.layui-nav-itemed').removeClass('layui-nav-itemed');
         $('.layui-this').parent().parent().parent().addClass('layui-nav-itemed');
-
-
 
     });
 

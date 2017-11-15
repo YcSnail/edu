@@ -165,7 +165,7 @@
                     </div>
 
                     <div class="form-group">
-                        <input type="password" class="form-control passworld" placeholder="密码">
+                        <input type="password" class="form-control password" placeholder="密码">
                         <i class="fa fa-lock"></i>
                     </div>
 
@@ -186,10 +186,22 @@
 <script>
     $().ready(function () {
 
+        $('body').keydown(function(e){
+            if(e.keyCode==13){
+                $('.btn-submit').click();
+            }
+        });
+
+        //   $('.btn-submit').click();
+
         $('.btn-submit').click(function () {
 
-            var getArr = ['name','passworld'];
+            var getArr = ['name','password'];
             var getList = getClassValArr(getArr);
+
+            if (!getList){
+                return false;
+            }
 
             // 获取是否选中
             var check = $('.check').is(':checked');

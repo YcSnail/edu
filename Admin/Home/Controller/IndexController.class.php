@@ -1,7 +1,8 @@
 <?php
 namespace Home\Controller;
 use Think\Controller;
-class IndexController extends Controller {
+
+class IndexController extends CheckController {
     public function index(){
 
         $this->display();
@@ -51,6 +52,12 @@ class IndexController extends Controller {
         $this->assign($objData);
         $this->display();
 
+    }
+
+    public function test(){
+        $tt = 'test';
+
+        return $tt;
     }
 
 }

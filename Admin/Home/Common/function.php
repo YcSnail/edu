@@ -133,14 +133,13 @@ function unsetCookie($data){
     if (empty($code)) {
         ajaxRes(-1, '');
     }
-
     $cookieName = $code . 'Cookie';
     $cookieData = $_COOKIE[$cookieName];
 
     $returRes = false;
     // cookie 不存在
     if (!empty($cookieData)) {
-        setcookie($cookieName, '', time() - 3600);
+        setcookie($cookieName, '');
         $returRes = true;
     }
     return $returRes;

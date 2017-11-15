@@ -1,7 +1,7 @@
 <?php
 namespace Home\Controller;
 use Think\Controller;
-class SeoController extends Controller {
+class SeoController extends CheckController {
 
 
 

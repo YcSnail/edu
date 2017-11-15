@@ -10,15 +10,15 @@ namespace Home\Model;
 use Think\Model;
 class MemberModel extends Model {
 
-    // 获取 key 对应的数据
+    // 获取 对应的数据
     public function getData($name){
 
         if (empty($name)){
             return '用户名不能为空';
         }
 
-        $ojb = D('member');
-        $data = $ojb->where(" `name`= '$name' ")->find();
+        $obj = D('member');
+        $data = $obj->where(" `name`= '$name' ")->find();
 
         return $data;
     }
@@ -38,14 +38,14 @@ class MemberModel extends Model {
      * @return mixed
      */
     public function ObjAdd($arr){
-        $ojb = D('member');
+        $obj = D('member');
 
         $data['key'] = $arr['key'];
         $data['title'] = $arr['title'];
         $data['keywords'] = $arr['keywords'];
         $data['description'] = $arr['description'];
 
-        $dataRes = $ojb->data($data)->add();
+        $dataRes = $obj->data($data)->add();
         return $dataRes;
     }
 
@@ -55,21 +55,35 @@ class MemberModel extends Model {
      * @return bool
      */
     public function ObjChange($arr){
-        $ojb = D('member');
 
-        $id = $arr['id'];
-        $data['name'] = $arr['name'];
-        $data['password'] = $arr['password'];
-        $dataRes = $ojb->where(" `id`= '$id' ")->save($data); // 根据条件更新记录
+        if (empty($arr['password'])){
+            return false;
+        }
+
+        $obj = D('member');
+
+        $dataRes = false;
+        // 查询数据是否一致
+        $checkRes = $this->getData($arr['name']);
+
+        // 若相等 则进行更改
+        if ($checkRes['id'] == $arr['id']){
+            $salt = $checkRes['salt'];
+            $password = md5($arr['password'].$salt);
+
+            $id = $arr['id'];
+            $data['password'] = $password;
+            $dataRes = $obj->where(" `id`= '$id' ")->save($data); // 根据条件更新记录
+        }
 
         return $dataRes;
     }
 
     public function login($arr){
-        $ojb = D('member');
+        $obj = D('member');
         $name = $arr['name'];
 
-        $dataRes = $ojb->where(" `name`= '$name' ")->find(); // 根据条件更新记录
+        $dataRes = $obj->where(" `name`= '$name' ")->find(); // 根据条件更新记录
         return $dataRes;
     }
 
