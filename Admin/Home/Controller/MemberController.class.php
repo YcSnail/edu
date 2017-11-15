@@ -13,7 +13,8 @@ class MemberController extends Controller {
     public function changePwd(){
 
         // 查询数据库 ID 获取对应的数据
-        $name = 'admin';
+
+        $name = $_COOKIE['userName'];
         $obj = D('Member');
         // 获取 key 对应的数据
         $SeoData = $obj->getData($name);

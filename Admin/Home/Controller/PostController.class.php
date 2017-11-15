@@ -70,7 +70,7 @@ class PostController extends Controller {
         $seo = D('Seo');
 
         // 判断是 修改还是 新增
-        if (!empty( $post['id'])){
+        if (!empty( $Setdata['id'])){
 
             // 修改数据
             $dataRes = $seo->seoChange($Setdata);

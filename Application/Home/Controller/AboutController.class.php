@@ -3,10 +3,26 @@ namespace Home\Controller;
 use Think\Controller;
 class AboutController extends Controller {
 
+    public $data;
+
+
+    public function __construct(){
+        parent::__construct();
+
+        $key = 'about';
+        $this->data = A('Index')->getSeo($key);
+
+    }
+
     /**
      * 关于我们主页面
      */
     public function index(){
+
+        $setData['data'] = $this->data;
+
+        $this->assign($setData);
+
         $this->display();
     }
 
