@@ -65,6 +65,7 @@ class SeoModel extends Model {
         $data['title'] = $arr['title'];
         $data['keywords'] = $arr['keywords'];
         $data['description'] = $arr['description'];
+
         $dataRes = $seo->where(" `id`= '$id' ")->save($data); // 根据条件更新记录
 
         return $dataRes;

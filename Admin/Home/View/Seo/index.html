@@ -61,22 +61,30 @@
                     // 点击提交
                     $('.btn-sumit').click(function () {
 
-                        var getArr = ['id','key','title','keywords','description'];
+                        var id = $('.id').val();
+                        var key = $('.key').val();
+                        var title = $('.title').val();
+                        var keywords = $('.keywords').val();
+                        var description = $('.description').val();
 
-                        var getList = getClassValArr(getArr,['id']);
+                        title = checkEmpty(title,'title');
+                        keywords = checkEmpty(keywords,'keywords');
+                        description = checkEmpty(description,'description');
 
-                        if (!getList){
+
+                        if (!title || !keywords ||!description){
                             return false;
                         }
 
-                        var saveStr = getList.join(";");
-
                         var url = "{:U('Post/Seo')}";
-
                         $.post(
                             url,
                             {
-                                'dataStr':saveStr
+                                'id':id,
+                                'key':key,
+                                'title':title,
+                                'keywords':keywords,
+                                'description':description
                             },function (data) {
 
                                 if (data.code == 0){
