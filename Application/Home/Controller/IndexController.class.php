@@ -1,9 +1,19 @@
 <?php
 namespace Home\Controller;
 use Think\Controller;
-class IndexController extends Controller {
+class IndexController extends SystemController {
 
-    public function index(){
+
+    public $systemData;
+
+    public function __construct(){
+        parent::__construct();
+        $this->systemData = $this->system;
+
+        $this->assign($this->systemData);
+    }
+
+        public function index(){
 
         $key = __FUNCTION__;
         $data = $this->getSeo($key);

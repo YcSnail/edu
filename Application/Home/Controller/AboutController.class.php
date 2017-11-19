@@ -1,13 +1,16 @@
 <?php
 namespace Home\Controller;
 use Think\Controller;
-class AboutController extends Controller {
+class AboutController extends SystemController {
 
     public $data;
-
+    public $systemData;
 
     public function __construct(){
         parent::__construct();
+        $this->systemData = $this->system;
+
+        $this->assign($this->systemData);
 
         $key = 'about';
         $this->data = A('Index')->getSeo($key);
