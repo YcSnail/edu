@@ -220,7 +220,7 @@ function checkEmpty(value,msg) {
         layer.msg(msg+'不能为空');
         return false;
     }
-    return true;
+    return value;
 }
 
 /**

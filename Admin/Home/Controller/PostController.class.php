@@ -55,41 +55,32 @@ class PostController extends Controller {
 
         $post = I('post.');
 
-        if (empty($post['dataStr'])){
-            ajaxRes(-1,'数据不能为空');
-        }
-
-        $dataStr = $post['dataStr'];
-
-        $Setdata = explodeData($dataStr);
-
-        if (empty($Setdata['key'])  || empty($Setdata['title']) || empty($Setdata['keywords']) || empty($Setdata['description'])  ){
+        if (empty($post['key'])  || empty($post['title']) || empty($post['keywords']) || empty($post['description'])  ){
             ajaxRes(-1,'数据不完整');
         }
 
         $seo = D('Seo');
-
         // 判断是 修改还是 新增
-        if (!empty( $Setdata['id'])){
+        if (!empty( $post['id'])){
 
             // 修改数据
-            $dataRes = $seo->seoChange($Setdata);
+            $dataRes = $seo->seoChange($post);
 
-            if (empty($dataRes)){
-                ajaxRes(-1,'更新失败请重试');
+            if (!empty($dataRes)){
+                ajaxRes(0,'修改成功');
             }
 
         }else{
 
             // 否则 新增数据
-            $dataRes = $seo->seoAdd($Setdata);
-            if (empty($dataRes)){
-                ajaxRes(-1,'更新失败请重试');
+            $dataRes = $seo->seoAdd($post);
+            if (!empty($dataRes)){
+                ajaxRes(0,'修改成功');
             }
 
         }
+        ajaxRes(-1,'更新失败请重试');
 
-        ajaxRes(0,'修改成功');
     }
 
     /**
