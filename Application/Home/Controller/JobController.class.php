@@ -17,10 +17,24 @@ class JobController extends SystemController {
      * 招聘 主页面
      */
     public function index(){
+        // 获取招聘信息
 
-        $array['nowTime'] = date('Y-m-d');
+        // 查询是否存在数据
 
-        $this->assign($array);
+        // 查询数据库 ID 获取对应的数据
+        $key = 'job';
+
+        $obj = D('Article');
+        // 获取 key 对应的数据
+        $getData = $obj->getData($key);
+
+        $setData['title'] = $getData['title'];
+        $setData['content'] = htmlspecialchars_decode($getData['content']);
+        $setData['nowTime'] = date('Y-m-d');
+        $setData['count'] = $getData['count'];
+
+        // 传值
+        $this->assign($setData);
         $this->display();
     }
 
