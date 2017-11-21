@@ -149,7 +149,7 @@
 
 /*响应式*/
 @media screen and (max-width:1282px){
-	.panel{ width:33.3333%; }
+	.panel{ width:25%; }
 }
 @media screen and (max-width:1050px){
 	.layui-nav.top_menu .layui-nav-item a{ padding:0 10px; }

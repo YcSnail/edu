@@ -11,88 +11,80 @@
         .layui-show{
             margin-top: 20px;
             margin-left: 8px;
-
         }
 
     </style>
 
-    <div class="layui-show" style="padding: 10px 15px;">
-        <div class="panel_box row">
-            <div class="panel col">
-                <a href="javascript:;" data-url="/announcement/announcement_unread_list.do">
-                    <div class="panel_icon">
-                        <i class="layui-icon larry-icon larry-gonggaoguanli"
-                           data-icon="larry-gonggaoguanli"></i>
-                    </div>
-                    <div class="panel_word unreadAnnInfo">
-                        <span>0</span>
-                        <cite>未读公告</cite>
-                    </div>
-                </a>
-            </div>
-            <div class="panel col">
-                <a href="javascript:;" data-url="page/message/message.html">
-                    <div class="panel_icon">
-                        <i class="layui-icon" data-icon=""></i>
-                    </div>
-                    <div class="panel_word newMessage">
-                        <span>0</span>
-                        <cite>待定</cite>
-                    </div>
-                </a>
-            </div>
-            <div class="panel col">
-                <a href="javascript:;" data-url="page/user/allUsers.html">
-                    <div class="panel_icon" style="background-color:#F7B824;">
-                        <i class="layui-icon" data-icon=""></i>
-                    </div>
-                    <div class="panel_word waitNews">
-                        <span>0</span>
-                        <cite>待定</cite>
-                    </div>
-                </a>
-            </div>
-            <div class="panel col max_panel">
-                <a href="javascript:;" data-url="page/img/images.html">
-                    <div class="panel_icon" style="background-color:#5FB878;">
-                        <i class="layui-icon" data-icon=""></i>
-                    </div>
-                    <div class="panel_word imgAll">
-                        <span>0</span>
-                        <cite>待定</cite>
-                    </div>
-                </a>
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <div class="sysNotice col">
-        <div class="layui-collapse">
-            <div class="layui-colla-item">
-                <h2 class="layui-colla-title" style="background-color: #ffffff;">网站访问情况统计<i
-                        class="layui-icon layui-colla-icon"></i></h2>
-                <div class="layui-colla-content layui-show">
-                    <div id="container"
-                         style="height: 300px; margin: 0px auto; width: 100%; -webkit-tap-highlight-color: transparent; user-select: none; background: transparent; position: relative;"
-                         _echarts_instance_="ec_1505033954389">
-                        <div style="position: relative; overflow: hidden; width: 763px; height: 300px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;">
-                            <canvas width="763" height="300" data-zr-dom-id="zr_0"
-                                    style="position: absolute; left: 0px; top: 0px; width: 763px; height: 300px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas>
-                        </div>
-                        <div style="position: absolute; display: none; border-style: solid; white-space: nowrap; z-index: 9999999; transition: left 0.4s cubic-bezier(0.23, 1, 0.32, 1), top 0.4s cubic-bezier(0.23, 1, 0.32, 1); background-color: rgba(50, 50, 50, 0.498039); border-width: 0px; border-color: rgb(51, 51, 51); border-radius: 4px; color: rgb(255, 255, 255); font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14px; font-family: &quot;Microsoft YaHei&quot;; line-height: 21px; padding: 5px; left: 663.1px; top: 82px;">
-                            周日<br><span
-                                style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:#2ec7c9"></span>访问量
-                            : 0.2
-                        </div>
-                    </div>
+    <div class="panel_box row">
+        <div class="panel col">
+            <a href="javascript:;" data-url="page/message/message.html">
+                <div class="panel_icon">
+                    <i class="layui-icon" data-icon=""></i>
                 </div>
-            </div>
+                <div class="panel_word newMessage">
+                    <span class="yesterdayPerson">0</span>
+                    <cite>昨日访问人数</cite>
+                </div>
+            </a>
+        </div>
+        <div class="panel col">
+            <a href="javascript:;" data-url="page/user/allUsers.html">
+                <div class="panel_icon">
+                    <i class="layui-icon" data-icon=""></i>
+                </div>
+                <div class="panel_word userAll">
+                    <span class="yesterdayVisit">0</span>
+                    <cite>昨日访问次数</cite>
+                </div>
+            </a>
+        </div>
+        <div class="panel col">
+            <a href="javascript:;" data-url="page/user/allUsers.html">
+                <div class="panel_icon" style="background-color:#ff4c4c;">
+                    <i class="layui-icon" data-icon=""></i>
+                </div>
+                <div class="panel_word userAll">
+                    <span class="todayPerson">0</span>
+                    <cite>今日访问人数</cite>
+                </div>
+            </a>
+        </div>
+        <div class="panel col">
+            <a href="javascript:;">
+                <div class="panel_icon" style="background-color:#ff4c4c;">
+                    <i class="layui-icon" data-icon=""></i>
+                </div>
+                <div class="panel_word imgAll">
+                    <span class="todayVisit">0</span>
+                    <cite>今日访问次数</cite>
+                </div>
+            </a>
+        </div>
+
+        <div class="panel col" style="clear: both;">
+            <a href="javascript:;">
+                <div class="panel_icon" style="background-color:#5FB878;">
+                    <i class="iconfont icon-dongtaifensishu" data-icon="icon-dongtaifensishu"></i>
+                </div>
+                <div class="panel_word imgAll">
+                    <span class="people">0</span>
+                    <cite>当前在线人数</cite>
+                </div>
+            </a>
+        </div>
+
+        <div class="panel col">
+            <a href="http://www.cnzz.com/stat/website.php?web_id=1270486446" target="_blank">
+                <div class="panel_icon" style="background-color:#5FB878;">
+                    <i class="iconfont icon-dongtaifensishu" data-icon="icon-dongtaifensishu"></i>
+                </div>
+                <div class="panel_word imgAll">
+                    <span></span>
+                    <cite>查看更多详细信息</cite>
+                </div>
+            </a>
         </div>
     </div>
-
 
     <div style="width: 80px;height: 80px">
         <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1270486446'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1270486446%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
@@ -100,8 +92,9 @@
 
 
     <style>
-        #cnzz_stat_icon_1270486446{
 
+        #cnzz_stat_icon_1270486446{
+            display: none;
         }
     </style>
 
@@ -121,6 +114,11 @@
                 var histroyArr = histroy.split('|');
 
                 if (num > 4){
+                    layui.use('layer', function(){
+                        layer = layui.layer;
+                    });
+
+                    layer.msg('获取数据失败,可能被拦截插件屏蔽');
                     return false;
                 }
 
@@ -131,13 +129,23 @@
                 }
 
                 // 1 2 3 4 4个数据  提取数字
+                var yesterdayIp = histroyArr[3].replace(/[^0-9]/ig,"");
+                var yesterdayPv = histroyArr[4].replace(/[^0-9]/ig,"");
+
                 var todayIp = histroyArr[1].replace(/[^0-9]/ig,"");
                 var todayPV = histroyArr[2].replace(/[^0-9]/ig,"");
 
-                var yesterdayIp = histroyArr[3].replace(/[^0-9]/ig,"");
-                var yesterdayIp = histroyArr[4].replace(/[^0-9]/ig,"");
-
                 var onLine = $("#cnzz_stat_icon_1270486446 > a:eq(2)").text().replace(/[^0-9]/ig,"");
+
+                var setArr = ['yesterdayPerson','yesterdayVisit','todayPerson','todayVisit','people'];
+                var valArr = [yesterdayIp,yesterdayPv,todayIp,todayPV,onLine];
+                for (i=0;i<setArr.length;i++){
+
+                    if (valArr[i] == ''){
+                        valArr[i] = 0;
+                    }
+                    $('.'+setArr[i]).text(valArr[i]);
+                }
 
 
             }
