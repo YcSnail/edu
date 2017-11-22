@@ -210,6 +210,10 @@ class PostController extends Controller {
         $Setdata = explodeData($dataStr);
 
         //安全验证
+        if (empty($Setdata['submit'])){
+            ajaxRes(-1,'请通过正常渠道提交');
+        }
+
 
         if (!empty($Setdata['name']) || !empty($Setdata['password'])){
 

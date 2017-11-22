@@ -49,7 +49,13 @@
                     <div class="layui-form-item">
                         <label class="layui-form-label">密码</label>
                         <div class="layui-input-block">
-                            <input type="text" placeholder="请输入" autocomplete="off" class="layui-input password">
+                            <input type="password" placeholder="请输入" autocomplete="off" class="layui-input password">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">确认密码</label>
+                        <div class="layui-input-block">
+                            <input type="password" placeholder="请输入" autocomplete="off" class="layui-input password2">
                         </div>
                     </div>
 
@@ -71,6 +77,12 @@
 
                         if (pwd.length<8){
                             layer.msg('密码太短,请超过8个字符');
+                            return false;
+                        }
+
+                        var pwd2 = $('.password2').val();
+                        if (pwd != pwd2){
+                            layer.msg('两次密码输入不一致');
                             return false;
                         }
 
