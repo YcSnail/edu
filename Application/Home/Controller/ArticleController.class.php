@@ -11,6 +11,11 @@ class ArticleController extends SystemController {
 
         $this->assign($this->systemData);
 
+        $key = 'institute';
+        $this->seo = A('Index')->getSeo($key);
+        $setData['data'] = $this->seo;
+        $this->assign($setData);
+
     }
         /**
      * 文章 主页面

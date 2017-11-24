@@ -9,8 +9,12 @@ class JobController extends SystemController {
     public function __construct(){
         parent::__construct();
         $this->systemData = $this->system;
-
         $this->assign($this->systemData);
+
+        $key = 'job';
+        $this->seo = A('Index')->getSeo($key);
+        $setData['data'] = $this->seo;
+        $this->assign($setData);
     }
 
     /**
